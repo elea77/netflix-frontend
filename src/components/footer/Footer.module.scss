@@ -1,0 +1,16 @@
+.footer__main {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    .footer__first {
+        padding: 1em;
+        h2 {
+            margin-top: 0;
+        }
+    }
+    .footer__second {
+        padding: 1em;
+        h2 {
+            margin-top: 0;
+        }
+    }
+}
