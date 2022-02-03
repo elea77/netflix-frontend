@@ -1,0 +1,15 @@
+.input__form {
+    input {
+        border: 1px solid transparent;
+        font-size: 14px;
+        min-width: 280px;
+        height: 44px;
+        line-height: 42px;
+        padding: 0 14px;
+        font-size: 16px;
+        margin-bottom: 1em;
+        &:focus, &:hover {
+            outline: none;
+        }
+    }
+}

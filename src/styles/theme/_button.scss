@@ -1,0 +1,25 @@
+@import '../helpers/variables';
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition: 0.2s;
+    min-width: 240px;
+    height: 44px;
+    line-height: 42px;
+    padding: 0 24px;
+    font-size: 16px;
+    cursor: pointer;
+    &-red {
+        border-color: $primary-red;
+        background-color: $primary-red;
+        color: #fff;
+        border-radius: 4px;
+        width: 100%;
+    }
+}
