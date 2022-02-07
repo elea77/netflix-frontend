@@ -6,7 +6,7 @@ import '../styles/styles.scss';
 
 function MyApp({ Component, pageProps, ...appProps }) {
 
-  if ([`/login`].includes(appProps.router.pathname) || [`/register`].includes(appProps.router.pathname))
+  if ([`/login`].includes(appProps.router.pathname) || [`/`].includes(appProps.router.pathname))
   return  (
     <LoginLayout>
       <Component {...pageProps} />
