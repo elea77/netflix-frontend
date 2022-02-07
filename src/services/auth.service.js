@@ -26,5 +26,13 @@ export default {
             }
         })
         .then(res => res.json())
+    },
+    getUserEmail(email) {
+        return fetch(`${apiConfigs.env.API_URL}api/v1/users/get-email/${email}`, {
+            headers: {
+              "content-type": "application/json",
+            }
+        })
+        .then(res => res.json())
     }
 }

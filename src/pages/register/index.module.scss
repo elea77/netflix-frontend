@@ -1,0 +1,22 @@
+.register__body {
+    margin: 0 auto -236px;
+    min-height: 100vh;
+    .register__content {
+        h1 {
+            padding-top: 2em;
+            color: white;
+            font-size: 3em;
+        }
+        h2 {
+            color: white;
+            font-weight: normal;
+        }
+        p {
+            color: white;
+        }
+        .register__form {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

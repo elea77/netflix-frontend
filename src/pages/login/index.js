@@ -32,11 +32,11 @@ const Index = () => {
 
     return (
         <div>
-            <div className={styles.login__form}>
+            <div className={styles.login__body}>
                 {error ? {errorMessage} : ""}
                 <div className={styles.login__content}>
-                    <h1>S'identifier</h1>
-                    <form className='text-center' onSubmit={(e) => handleSubmit(e)}>
+                    <h1>{`S'identifier`}</h1>
+                    <form onSubmit={(e) => handleSubmit(e)}>
                         <InputLabel type="email" required="required" label="E-mail ou numéro de téléphone"  onChange={(e) => { setUser({ ...user, email: e.target.value }) }} />
                         <InputLabel type="password" required="required" label="Mot de passe" onChange={(e) => { setUser({ ...user, password: e.target.value }) }} />
                         <Input type="submit" value="S'identifier" className="btn btn-red" />
@@ -44,12 +44,12 @@ const Index = () => {
                     <div className={styles.signup}>
                         <p>
                             Première visite sur Netflix ? &nbsp;
-                            <Link href=''><a>Inscrivez-vous</a></Link>.
+                            <Link href='/register'><a>Inscrivez-vous</a></Link>.
                         </p>
                     </div>
                     <div className={styles.recaptcha}>
                         <p>
-                        Cette page est protégée par Google reCAPTCHA pour nous assurer que vous n'êtes pas un robot. <br />
+                        Cette page est protégée par Google reCAPTCHA pour nous assurer que vous {`n'êtes`} pas un robot. <br />
                             <Link href=''><a>En savoir plus.</a></Link>
                         </p>
                     </div>
