@@ -1,3 +1,5 @@
+@import '../../../styles/helpers/mixins';
+
 .main {
     background-image: url('../../../assets/images/netflix_background.jpg');
     background-repeat: no-repeat;
@@ -11,12 +13,19 @@
             text-decoration: none;
             vertical-align: middle;
             fill: #e50914;
-            display: inline-block;
+            display: flex;
             line-height: 90px;
+            align-items: center;
             img {
                 height: 45px;
                 width: 167px;
                 vertical-align: middle;
+                margin-right: auto;
+            }
+            input {
+                min-width: auto;
+                line-height: 36px;
+                height: 36px;
             }
         }
     }

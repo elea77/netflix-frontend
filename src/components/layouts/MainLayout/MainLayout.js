@@ -20,7 +20,7 @@ const MainLayout = ({children}) => {
                 <HeaderMenu />
                 <SubHeader />
             </header>
-            <main>
+            <main className={styles.main}>
                 {children}
             </main>
             <footer>

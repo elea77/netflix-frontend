@@ -8,8 +8,6 @@ import Link from 'next/link';
 const Index = () => {
     const [user, setUser] = useState({});
     const router = useRouter();
-    const [error, setError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,6 +16,11 @@ const Index = () => {
         authService.getUserEmail(email)
         .then(data => {
             console.log(data.message);
+            if(data.message == true) {
+                router.push("/login");
+            } else {
+                router.push("/register");
+            }
         })
         .catch(err => console.log(err));
     };
@@ -25,7 +28,6 @@ const Index = () => {
     return (
         <div>
             <div className={styles.register__body}>
-                {error ? {errorMessage} : ""}
                 <div className={styles.register__content}>
                     <h1 className='text-center'>Films, séries TV et bien <br /> plus en illimité.</h1>
                     <h2 className='text-center'>Où que vous soyez. Annulez à tout moment.</h2>

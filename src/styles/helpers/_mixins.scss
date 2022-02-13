@@ -1,0 +1,14 @@
+/* MIXINS */
+
+@mixin fa($icon) {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: $icon;
+}
+
+@mixin far($icon) {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+    content: $icon;
+}
+

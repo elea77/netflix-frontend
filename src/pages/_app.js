@@ -1,5 +1,6 @@
 import MainLayout from '../components/layouts/MainLayout/MainLayout';
 import LoginLayout from '../components/layouts/LoginLayout/LoginLayout';
+import RegisterLayout from '../components/layouts/RegisterLayout/RegisterLayout';
 import DashboardLayout from '../components/layouts/DashboardLayout/DashboardLayout';
 import '../styles/styles.scss';
 
@@ -11,6 +12,13 @@ function MyApp({ Component, pageProps, ...appProps }) {
     <LoginLayout>
       <Component {...pageProps} />
     </LoginLayout>
+  );
+
+  if ([`/register`].includes(appProps.router.pathname))
+  return  (
+    <RegisterLayout>
+      <Component {...pageProps} />
+    </RegisterLayout>
   );
 
   if ([`/dashboard`].includes(appProps.router.pathname))

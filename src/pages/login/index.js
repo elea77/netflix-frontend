@@ -22,7 +22,7 @@ const Index = () => {
                 return false;
             }
             localStorage.setItem("token", data.token);
-            router.push("/");
+            router.push("/browser");
         })
         .catch((err) => {
             setError(true);
@@ -44,7 +44,7 @@ const Index = () => {
                     <div className={styles.signup}>
                         <p>
                             Première visite sur Netflix ? &nbsp;
-                            <Link href='/register'><a>Inscrivez-vous</a></Link>.
+                            <Link href='/'><a>Inscrivez-vous</a></Link>.
                         </p>
                     </div>
                     <div className={styles.recaptcha}>
