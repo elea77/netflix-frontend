@@ -1,3 +1,69 @@
-.wrapper {
+.motion__background {
+    position: relative;
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        opacity: 0.5;
+    }
+    .billboard {
+        position: absolute;
+        top: 20%;
+        bottom: 35%;
+        left: 4%;
+        width: 36%;
+        z-index: 10;
+        color: white;
+        img {
+            width: 50%;
+        }
+        .btn_play {
+            background-color: white;
+            border-radius: 5px;
+            color: black;
+            padding: 6px 12px;
+            text-decoration: none;
+            margin-right: 1em;
+        }
+        .btn_info {
+            background-color: white;
+            border-radius: 5px;
+            color: black;
+            padding: 6px 12px;
+            text-decoration: none;
+        }
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
 
+  
+}
+
+.wrapper {
+    padding: 4em;
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper__slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .swiper__slide {
+        img {
+            display: block;
+            width: 200px;
+            height: auto;
+            object-fit: cover;
+        }
+    }
 }

@@ -3,7 +3,7 @@ import LoginLayout from '../components/layouts/LoginLayout/LoginLayout';
 import RegisterLayout from '../components/layouts/RegisterLayout/RegisterLayout';
 import DashboardLayout from '../components/layouts/DashboardLayout/DashboardLayout';
 import '../styles/styles.scss';
-
+import "swiper/css/bundle";
 
 function MyApp({ Component, pageProps, ...appProps }) {
 
