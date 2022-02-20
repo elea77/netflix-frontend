@@ -27,6 +27,7 @@ const Index = () => {
                     <tr>
                         <th>Titre</th>
                         <th>Description</th>
+                        <th>Image</th>
                         <th>Durée</th>
                         <th>Date de sortie</th>
                         <th>Catégories</th>
@@ -39,6 +40,7 @@ const Index = () => {
                         <tr key={movie._id}>
                             <td data-column="Titre">{movie.title}</td>
                             <td data-column="Description">{movie.description}</td>
+                            <td data-column="Image"><img src={movie.img} /></td>
                             <td data-column="Durée">{movie.duration}</td>
                             <td data-column="Date">{movie.date}</td>
                             <td data-column="Catégorie">{movie.categories}</td>

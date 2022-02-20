@@ -12,7 +12,6 @@
         margin: auto;
     }
     .table { 
-        width: 750px; 
         border-collapse: collapse; 
         margin:50px auto;
         tr:nth-of-type(odd) { 
@@ -20,7 +19,7 @@
         }
         
         th { 
-            background: #3498db; 
+            background: #181818; 
             color: white; 
             font-weight: bold; 
         }
@@ -30,6 +29,9 @@
             border: 1px solid #ccc; 
             text-align: left; 
             font-size: 18px;
+            & > img {
+                max-width: 150px;
+            }
         }
     }
 }

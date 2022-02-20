@@ -70,6 +70,13 @@ export default {
           body: JSON.stringify(movie),
         }).then((res) => res.json())
     },
+    getMoviesByCategory(id) {
+      return fetch(`${apiConfigs.env.API_URL}api/v1/movies/category/${id}`, {
+          headers: {
+            "content-type": "application/json"
+          }
+        }).then((res) => res.json())
+    },
     getAllCategories() {
         return fetch(`${apiConfigs.env.API_URL}api/v1/categories`, {
             headers: {

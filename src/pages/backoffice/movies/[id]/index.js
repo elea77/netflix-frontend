@@ -54,6 +54,8 @@ const Index = () => {
                 <InputLabel type="text" required="required" label="Description" onChange={(e) => { setMovie({ ...movie, description: e.target.value }) }} value={movie.description} />
                 <InputLabel type="text" required="required" label="Durée" onChange={(e) => { setMovie({ ...movie, duration: e.target.value }) }} value={movie.duration} />
                 <InputLabel type="text" required="required" label="Date" onChange={(e) => { setMovie({ ...movie, date: e.target.value }) }} value={movie.date} />
+                <InputLabel type="text" label="Image" onChange={(e) => { setMovie({ ...movie, img: e.target.value }) }} value={movie.img} />
+                <InputLabel type="text" label="Video" onChange={(e) => { setMovie({ ...movie, video: e.target.value }) }} value={movie.video} />
                 <h3>Catégories :</h3>
                 {
                     categories.map((category) => (

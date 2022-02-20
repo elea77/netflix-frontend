@@ -1,0 +1,52 @@
+.movie__card {
+    transition: 0.3s;
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    &:hover {
+        transform: scale(1.5);
+        z-index: 1;
+        .movie__info {
+            display: block;
+        }
+    }
+    .movie__info {
+        display: none;
+        background: #181818;
+        padding: 0.5em;
+        .movie__buttons {
+            display: flex;
+            justify-content: space-between;                
+            .play,
+            .more {
+                border: 1px solid white;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                svg {
+                    color: white;
+                }
+            }
+            .more {
+                svg {
+                    font-size: 12px;
+                }
+            }
+            .play {
+                svg {
+                    font-size: 10px;
+                }
+            }
+        }
+        .recommandation {
+            color: #3ED370;
+            font-size: 0.6rem;
+        }
+    }
+}

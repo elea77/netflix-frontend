@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import styles from './index.module.scss';
 import { FaPlay } from "react-icons/fa";
+import { FiChevronDown } from "react-icons/fi";
 import { GrCircleInformation } from "react-icons/gr";
 import { useRouter } from "next/router";
 // Swiper
@@ -40,22 +41,97 @@ const Index = ({authorized}) => {
             <div className={styles.wrapper}>
                 <Swiper
                     slidesPerView={6}
-                    spaceBetween={100}
+                    spaceBetween={5}
                     slidesPerGroup={6}
                     loop={true}
                     loopFillGroupWithBlank={true}
                     navigation={true}
                     modules={[Pagination, Navigation]}
                     className={styles.swiper}>
-                    <SwiperSlide className={styles.swiper__slide}><img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img></SwiperSlide>
-                    <SwiperSlide className={styles.swiper__slide}><img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img></SwiperSlide>
-                    <SwiperSlide className={styles.swiper__slide}><img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img></SwiperSlide>
-                    <SwiperSlide className={styles.swiper__slide}><img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img></SwiperSlide>
-                    <SwiperSlide className={styles.swiper__slide}><img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img></SwiperSlide>
-                    <SwiperSlide className={styles.swiper__slide}><img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img></SwiperSlide>
-                    <SwiperSlide className={styles.swiper__slide}><img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img></SwiperSlide>
-                    <SwiperSlide className={styles.swiper__slide}><img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img></SwiperSlide>
-                    <SwiperSlide className={styles.swiper__slide}><img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img></SwiperSlide>
+                    <SwiperSlide className={styles.swiper__slide}>
+                        <div className={styles.movie__card}>
+                            <img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img>
+                            <div className={styles.movie__info}>
+                                <div className={styles.movie__buttons}>
+                                    <Link href=''>
+                                        <a className={styles.play}>
+                                            <FaPlay />
+                                        </a>
+                                    </Link>
+                                    <Link href=''>
+                                        <a className={styles.more}>
+                                            <FiChevronDown />
+                                        </a>
+                                    </Link>
+                                </div>
+                                <p className={styles.recommandation}>Recommandé à 86%</p>
+                                
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide className={styles.swiper__slide}>
+                        <div className={styles.movie__card}>
+                            <img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img>
+                            <div className={styles.movie__info}>
+                                <div className={styles.movie__buttons}>
+                                    <Link href=''>
+                                        <a className={styles.play}>
+                                            <FaPlay />
+                                        </a>
+                                    </Link>
+                                    <Link href=''>
+                                        <a className={styles.more}>
+                                            <FiChevronDown />
+                                        </a>
+                                    </Link>
+                                </div>
+                                <p className={styles.recommandation}>Recommandé à 86%</p>
+                                
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide className={styles.swiper__slide}>
+                        <div className={styles.movie__card}>
+                            <img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img>
+                            <div className={styles.movie__info}>
+                                <div className={styles.movie__buttons}>
+                                    <Link href=''>
+                                        <a className={styles.play}>
+                                            <FaPlay />
+                                        </a>
+                                    </Link>
+                                    <Link href=''>
+                                        <a className={styles.more}>
+                                            <FiChevronDown />
+                                        </a>
+                                    </Link>
+                                </div>
+                                <p className={styles.recommandation}>Recommandé à 86%</p>
+                                
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide className={styles.swiper__slide}>
+                        <div className={styles.movie__card}>
+                            <img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img>
+                            <div className={styles.movie__info}>
+                                <div className={styles.movie__buttons}>
+                                    <Link href=''>
+                                        <a className={styles.play}>
+                                            <FaPlay />
+                                        </a>
+                                    </Link>
+                                    <Link href=''>
+                                        <a className={styles.more}>
+                                            <FiChevronDown />
+                                        </a>
+                                    </Link>
+                                </div>
+                                <p className={styles.recommandation}>Recommandé à 86%</p>
+                                
+                            </div>
+                        </div>
+                    </SwiperSlide>
                 </Swiper>
             </div>
         </div>
