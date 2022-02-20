@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
-import authService from "../../services/auth.service";
+import authService from 
+"../../services/auth.service";
 import {AiOutlineCaretDown} from 'react-icons/ai'
 import Link from 'next/link';
 import TitlePage from '../../components/UI/TitlePage/TitlePage';
 import MovieCard from '../../components/movie/MovieCard/MovieCard';
+import MovieModal from '../../components/movie/MovieModal/MovieModal';
 
 const Index = () => {
     const [movies, SetAllMovie] = useState([]);
     const [categories, SetAllCategory] = useState([]);
+    
+    const [displayMovieModal, setDisplayModal] = useState(false);
+    const [movie, setMovie] = useState({});
+
+    const movieModal = (movie) =>{
+        setMovie(movie);
+        setDisplayModal(!displayMovieModal)
+    }
 
     useEffect(() => {
         authService.getAllMovies()
@@ -43,10 +53,11 @@ const Index = () => {
             <div className={styles.movie__grid}>
                 {
                     movies.map((movie) => (
-                        <MovieCard movie={movie} key={movie._id} />
+                        <MovieCard movie={movie} key={movie._id} onClick={() => movieModal(movie)} />
                     ) )
                 }
             </div>
+            { displayMovieModal === true ? <MovieModal movie={movie} onClick={() => movieModal(movie)}  /> : null}
         </div>
     );
 };

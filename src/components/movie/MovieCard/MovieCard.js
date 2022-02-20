@@ -20,7 +20,7 @@ const MovieCard = (props) => {
                                 <FaPlay />
                             </a>
                         </Link>
-                        <Link href={`/movie/${props.movie.id}`}>
+                        <Link href=''>
                             <a className={styles.add}>
                                 <AiOutlinePlus />
                             </a>

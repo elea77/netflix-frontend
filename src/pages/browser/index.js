@@ -20,6 +20,7 @@ const Index = () => {
 
     const [displayMovieModal, setDisplayModal] = useState(false);
     const [movie, setMovie] = useState({});
+    const [movieHero, setMovieHero] = useState({});
 
     const movieModal = (movie) =>{
         setMovie(movie);
@@ -27,6 +28,12 @@ const Index = () => {
     }
 
     useEffect(() => {
+        const id = "6212364c1974371d9ec49f50";
+        authService.getMovie(id)
+            .then(data => {
+                setMovieHero(data)
+            })
+            .catch(err => console.log(err));
         authService.getAllMovies()
             .then(data => {
                 SetAllMovie(data)
@@ -41,14 +48,14 @@ const Index = () => {
                 <iframe width="100%" height="800" src="https://www.youtube.com/embed/DzCzUEhPI_Q?autoplay=1&loop=1&showinfo=0&controls=0&rel=0&modestbranding=1" title="Désenchantée" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  frameBorder="0" allowFullScreen></iframe>
                 <div className={styles.billboard}>
                     <img src='https://www.pikpng.com/pngl/b/569-5694162_mrs-mr-and-mrs-smith-clipart.png' />
-                    <p>Description</p>
+                    <p>{movieHero.description}</p>
                     <div className={styles.buttons}>
                         <Link href='/'>
                             <a className={styles.btn_play}><FaPlay /> Lecture</a>
                         </Link>
-                        <Link href='/'>
-                            <a className={styles.btn_info}><GrCircleInformation /> Plus {`d'infos`}</a>
-                        </Link>
+                        <div className={styles.btn_info} onClick={() => movieModal(movieHero)}>
+                            <GrCircleInformation /> Plus {`d'infos`}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,7 +65,6 @@ const Index = () => {
                     spaceBetween={5}
                     slidesPerGroup={6}
                     loop={true}
-                    loopFillGroupWithBlank={true}
                     navigation={true}
                     modules={[Pagination, Navigation]}
                     className={styles.swiper}>
