@@ -1,11 +1,11 @@
 .main {
-    // background-image: url('../../../assets/images/netflix_background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
     padding: 0;
+    background: none;
     .body {
-        background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100%);
+        background-color: white;
         padding: 0 4%;
         .netflix__header {
             text-decoration: none;

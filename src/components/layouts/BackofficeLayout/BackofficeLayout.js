@@ -2,11 +2,11 @@ import React from 'react';
 import HeaderLogo from '../../header/HeaderLogo/HeaderLogo';
 import Footer from '../../footer/Footer';
 // import '../../styles/styles.scss';
-import styles from './DashboardLayout.module.scss';
+import styles from './BackofficeLayout.module.scss';
 import LogoImg from '../../../assets/images/Netflix-logo.png';
 import Head from 'next/head';
 
-const DashboardLayout = ({children}) => {
+const BackofficeLayout = ({children}) => {
     return (
         <>
             <Head>
@@ -29,4 +29,4 @@ const DashboardLayout = ({children}) => {
     );
 };
 
-export default DashboardLayout;
+export default BackofficeLayout;

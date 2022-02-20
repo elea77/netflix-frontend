@@ -1,7 +1,7 @@
 import MainLayout from '../components/layouts/MainLayout/MainLayout';
 import LoginLayout from '../components/layouts/LoginLayout/LoginLayout';
 import RegisterLayout from '../components/layouts/RegisterLayout/RegisterLayout';
-import DashboardLayout from '../components/layouts/DashboardLayout/DashboardLayout';
+import BackofficeLayout from '../components/layouts/BackofficeLayout/BackofficeLayout';
 import '../styles/styles.scss';
 import "swiper/css/bundle";
 
@@ -21,11 +21,11 @@ function MyApp({ Component, pageProps, ...appProps }) {
     </RegisterLayout>
   );
 
-  if ([`/dashboard`].includes(appProps.router.pathname))
+  if (appProps.router.pathname.startsWith('/backoffice'))
   return  (
-    <DashboardLayout>
+    <BackofficeLayout>
       <Component {...pageProps} />
-    </DashboardLayout>
+    </BackofficeLayout>
   );
 
   return  (

@@ -17,7 +17,7 @@ const HeaderMenu = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/">
+                    <Link href="/wishlist">
                         <a>Ma liste</a>
                     </Link>
                 </li>

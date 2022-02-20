@@ -6,7 +6,6 @@ import styles from './LoginLayout.module.scss';
 import LogoImg from '../../../assets/images/Netflix-logo.png';
 import Head from 'next/head';
 import Input from '../../UI/Input/Input';
-import {BsGlobe2} from 'react-icons/bs'
 
 const LoginLayout = ({children}) => {
     return (
@@ -20,11 +19,6 @@ const LoginLayout = ({children}) => {
                 <div className={styles.body}>
                     <div className={styles.netflix__header}>
                         <img src={LogoImg.src} alt="Netflix" />
-                        {/* <BsGlobe2 size="30px" /> */}
-                        <select data-uia="language-picker-header" className="ui-select medium" id="lang-switcher-header-select" placeholder="lang-switcher">
-                            <option selected="" lang="fr" value="/fr/" data-language="fr" data-country="FR">Français</option>
-                            <option lang="en" value="/fr-en/" data-language="en" data-country="FR">Pas le choix</option>
-                        </select>
                         <Input type="submit" value="S'identifier" className="btn btn-red" />
                     </div>
                     {children}

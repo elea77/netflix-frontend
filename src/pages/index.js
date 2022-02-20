@@ -12,10 +12,8 @@ const Index = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const email = user.email;
-        console.log(email);
         authService.getUserEmail(email)
         .then(data => {
-            console.log(data.message);
             if(data.message == true) {
                 router.push("/login");
             } else {
