@@ -2,9 +2,7 @@ import Link from 'next/link';
 import React, {useState, useEffect} from 'react';
 import styles from './index.module.scss';
 import { FaPlay } from "react-icons/fa";
-import { FiChevronDown } from "react-icons/fi";
 import { GrCircleInformation } from "react-icons/gr";
-import { useRouter } from "next/router";
 import authService from "../../services/auth.service";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -65,7 +63,7 @@ const Index = () => {
                     spaceBetween={5}
                     slidesPerGroup={6}
                     loop={true}
-                    navigation={true}
+                    // navigation={true}
                     modules={[Pagination, Navigation]}
                     className={styles.swiper}>
                     {
