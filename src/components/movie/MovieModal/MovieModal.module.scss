@@ -1,0 +1,97 @@
+.movie__modal {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    overflow-x: hidden;
+    background-color: rgb(0, 0, 0, 0.75);
+    pointer-events: auto;
+    transition: 0.3s;
+    .modal__content {
+        position: relative;
+        display: block;
+        width: 850px;
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #fff;
+        align-self: center;
+        box-shadow: rgb(0, 0, 0, 0.75) 0px 3px 10px;
+        transition: 0.3s;
+        .close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 15px;
+            font-size: 2em;
+            color: white;
+            z-index: 2;
+            background-color: black;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 25px;
+        }
+        .movie__img {
+            position: relative;
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .billboard {
+                position: absolute;
+                left: 5%;
+                bottom: 10%;
+                width: 36%;
+                z-index: 10;
+                color: white;
+                img {
+                    width: 50%;
+                }
+                .btn_play {
+                    background-color: white;
+                    border-radius: 5px;
+                    color: black;
+                    padding: 6px 12px;
+                    text-decoration: none;
+                    margin-right: 1em;
+                }
+                .btn_info {
+                    background-color: white;
+                    border-radius: 5px;
+                    color: black;
+                    padding: 6px 12px;
+                    text-decoration: none;
+                }
+            }
+        }
+        .movie__info {
+            background: #181818;
+            padding: 1.5em;
+            color: white;
+            .movie__details {
+                display: flex;
+                .recommandation {
+                    color: #3ED370;
+                    font-size: 1rem;
+                    margin-right: 1em;
+                }
+                .duration,
+                .date {
+                    color: white;
+                    font-size: 1rem;
+                    margin-right: 1em;
+                }
+            }
+        }
+    }
+}

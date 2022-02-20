@@ -1,37 +1,40 @@
-import React, {useContext} from "react";
+import React from "react";
 import Link from "next/link";
-// import CartContext from "../../../context/CartContext";
 import styles from "./MovieCard.module.scss";
 import { FaPlay } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
+import { AiOutlinePlus } from "react-icons/ai";
+import MovieModal from "../MovieModal/MovieModal";
 
 
 const MovieCard = (props) => {
-
-//   const { addItem, removeItem } = useContext(CartContext);
   
-  return (
-    <div className={styles.movie__card} key={props.movie.id}>
-        {/* <img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img> */}
-        { props.movie.img ? <img src={props.movie.img} alt={props.movie.title} className={styles.movie__img} /> : <img src="https://fakeimg.pl/300x400/" alt={props.movie.title} className={styles.movie__img} /> }
-        <div className={styles.movie__info}>
-            <div className={styles.movie__buttons}>
-                <Link href=''>
-                    <a className={styles.play}>
-                        <FaPlay />
-                    </a>
-                </Link>
-                <Link href={`/movie/${props.movie.id}`}>
-                    <a className={styles.more}>
-                        <FiChevronDown />
-                    </a>
-                </Link>
+    return (
+        <>
+            <div className={styles.movie__card} key={props.movie.id}>
+                { props.movie.img ? <img src={props.movie.img} alt={props.movie.title} className={styles.movie__img} /> : <img src="https://fakeimg.pl/300x400/" alt={props.movie.title} className={styles.movie__img} /> }
+                <div className={styles.movie__info}>
+                    <div className={styles.movie__buttons}>
+                        <Link href=''>
+                            <a className={styles.play}>
+                                <FaPlay />
+                            </a>
+                        </Link>
+                        <Link href={`/movie/${props.movie.id}`}>
+                            <a className={styles.add}>
+                                <AiOutlinePlus />
+                            </a>
+                        </Link>
+                        <div onClick={props.onClick} className={styles.more}>
+                            <FiChevronDown />
+                        </div>
+                    </div>
+                    <p className={styles.recommandation}>Recommandé à 86%</p>
+                    <p className={styles.duration}>{props.movie.duration}</p>
+                </div>
             </div>
-            <p className={styles.recommandation}>Recommandé à 86%</p>
-            
-        </div>
-    </div>
-  );
+        </>
+    );
 };
 
 export default MovieCard;

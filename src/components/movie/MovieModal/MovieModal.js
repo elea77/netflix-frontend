@@ -1,35 +1,36 @@
-import React, {useContext} from "react";
+import React from "react";
 import Link from "next/link";
-// import CartContext from "../../../context/CartContext";
 import styles from "./MovieModal.module.scss";
 import { FaPlay } from "react-icons/fa";
-import { FiChevronDown } from "react-icons/fi";
-
+import { VscChromeClose } from "react-icons/vsc";
 
 const MovieModal = (props) => {
-
-//   const { addItem, removeItem } = useContext(CartContext);
   
-  return (
-    <div className={styles.movie__modal} key={props.movie.id}>
-        <img src='https://images.rtl.fr/~c/2000v2000/rtl/www/1474182-red-notice-sur-netflix.jpg'></img>
-        {/* { props.movie.img ? <img src={props.movie.img} alt={props.movie.title} className={styles.movie__img} /> : <img src="https://fakeimg.pl/300x400/" alt={props.movie.title} className={styles.movie__img} /> } */}
-        <div className={styles.movie__info}>
-            <div className={styles.movie__buttons}>
-                <Link href='/'>
-                    <a className={styles.btn_play}><FaPlay /> Lecture</a>
-                </Link>
-                <Link href={`/movie/${props.movie.id}`}>
-                    <a className={styles.more}>
-                        <FiChevronDown />
-                    </a>
-                </Link>
+    return (
+        <div className={styles.movie__modal}>
+            <div className={styles.modal__content} key={props.movie.id}>
+                <VscChromeClose className={styles.close} onClick={props.onClick} />
+                <div className={styles.movie__img}>
+                    { props.movie.img ? <img src={props.movie.img} alt={props.movie.title} className={styles.movie__img} /> : <img src="https://fakeimg.pl/300x400/" alt={props.movie.title} className={styles.movie__img} /> }
+                    <div className={styles.billboard}>
+                        <div className={styles.buttons}>
+                            <Link href='/'>
+                                <a className={styles.btn_play}><FaPlay /> Lecture</a>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.movie__info}>
+                    <div className={styles.movie__details}>
+                        <p className={styles.recommandation}>Recommandé à 86%</p>
+                        <p className={styles.date}>{props.movie.date}</p>
+                        <p className={styles.duration}>{props.movie.duration}</p> 
+                    </div>
+                    <p className={styles.description}>{props.movie.description}</p> 
+                </div>
             </div>
-            <p className={styles.recommandation}>Recommandé à 86%</p>
-            
         </div>
-    </div>
-  );
+    );
 };
 
 export default MovieModal;

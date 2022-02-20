@@ -1,5 +1,6 @@
 .movie__card {
     transition: 0.3s;
+    border-radius: 10px;
     img {
         display: block;
         width: 100%;
@@ -9,8 +10,14 @@
     &:hover {
         transform: scale(1.5);
         z-index: 1;
+        img {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
         .movie__info {
             display: block;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
         }
     }
     .movie__info {
@@ -21,8 +28,9 @@
             display: flex;
             justify-content: space-between;                
             .play,
-            .more {
-                border: 1px solid white;
+            .more,
+            .add {
+                border: 1px solid grey;
                 border-radius: 50%;
                 width: 20px;
                 height: 20px;
@@ -32,20 +40,28 @@
                 svg {
                     color: white;
                 }
+                &:hover {
+                    border-color: white;
+                }
             }
-            .more {
+            .more,
+            .add {
                 svg {
                     font-size: 12px;
                 }
             }
             .play {
                 svg {
-                    font-size: 10px;
+                    font-size: 8px;
                 }
             }
         }
         .recommandation {
             color: #3ED370;
+            font-size: 0.6rem;
+        }
+        .duration {
+            color: white;
             font-size: 0.6rem;
         }
     }
