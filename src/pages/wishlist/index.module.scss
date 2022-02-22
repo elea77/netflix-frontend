@@ -1,0 +1,63 @@
+.wishlist {
+    padding: 0 4%;
+    .header__page {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1em;
+        h1 {
+            margin-right: 1em;
+        }
+        .category__menu {
+            position: relative;
+            display: inline-block;
+            .menu__button {
+                background-color: black;
+                color: white;
+                border: 1px solid white;
+                padding: 0.2em 0.5em;
+                font-size: 14px;
+                padding-right: 3em;
+                position: relative;
+                svg {
+                    position: absolute;
+                    right: 0.5em;
+                    font-size: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+            .menu__content {
+                display: none;
+                position: absolute;
+                background-color: rgba(0,0,0,.9);
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+                a {
+                    color: white;
+                    font-size: 14px;
+                    padding: 10px 12px;
+                    text-decoration: none;
+                    display: block;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            &:hover {
+                .menu__content {
+                    display: block;
+                }
+            }
+        }
+    }
+    .movie__grid {
+        display: grid;
+        grid-template-columns: repeat(6, calc(100%/6));
+        overflow: hidden;
+        & > div {
+            padding: 0.2em;
+            padding-bottom: 3em;
+        }
+    }
+}

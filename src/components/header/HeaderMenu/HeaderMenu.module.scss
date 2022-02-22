@@ -66,12 +66,14 @@
                 min-width: 160px;
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                 right: 0;
-                a {
+                a,
+                span {
                     color: white;
                     font-size: 15px;
                     padding: 10px 12px;
                     text-decoration: none;
                     display: block;
+                    cursor: pointer;
                     &:hover {
                         text-decoration: underline;
                     }

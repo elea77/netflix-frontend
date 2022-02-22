@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import authService from "../../services/auth.service";
 import Link from 'next/link';
 import InputLabel from '../../components/UI/InputLabel/InputLabel';
+import TitlePage from '../../components/UI/TitlePage/TitlePage';
+import withAuth from '../../HOC/withAuth';
 
 const Index = () => {
     const [user, setUser] = useState({});
@@ -24,22 +26,48 @@ const Index = () => {
     };
 
     return (
-        <div>
+        <div className={styles.register}>
             <div className={styles.register__body}>
                 {error ? {errorMessage} : ""}
                 <div className={styles.register__content}>
-                    {/* <h1 className='text-center'>Films, séries TV et bien <br /> plus en illimité.</h1>
-                    <h2 className='text-center'>Où que vous soyez. Annulez à tout moment.</h2>
-                    <p className='text-center'>Prêt à regarder Netflix ? Saisissez votre adresse e-mail pour vous abonner ou réactiver votre abonnement.</p>
+                    <TitlePage title="Créer votre compte"></TitlePage>
                     <form className={styles.register__form} onSubmit={(e) => handleSubmit(e)}>
-                        <Input type="email" placeholder="Adresse e-mail" required="required" label="E-mail ou numéro de téléphone"  onChange={(e) => { setUser({ ...user, email: e.target.value }) }} />
-                        <Input type="submit" value="Commencer" className="btn btn-red" />
-                    </form> */}
-                    <form className={styles.register__form} onSubmit={(e) => handleSubmit(e)}>
-                        <InputLabel type="text" placeholder="Prénom" required="required" label="Prénom"  onChange={(e) => { setUser({ ...user, firstName: e.target.value }) }} />
-                        <InputLabel type="text" placeholder="Nom" required="required" label="Nom"  onChange={(e) => { setUser({ ...user, lastName: e.target.value }) }} />
-                        <InputLabel type="email" placeholder="Adresse e-mail" required="required" label="E-mail"  onChange={(e) => { setUser({ ...user, email: e.target.value }) }} />
-                        <InputLabel type="password" placeholder="Mot de passe" required="required" label="Mot de passe"  onChange={(e) => { setUser({ ...user, password: e.target.value }) }} />
+                        <div className={styles.register__input}>
+                            <InputLabel type="text" placeholder="Prénom" required="required" label="Prénom"  onChange={(e) => { setUser({ ...user, firstName: e.target.value }) }} />
+                            <InputLabel type="text" placeholder="Nom" required="required" label="Nom"  onChange={(e) => { setUser({ ...user, lastName: e.target.value }) }} />
+                            <InputLabel type="email" placeholder="Adresse e-mail" required="required" label="E-mail"  onChange={(e) => { setUser({ ...user, email: e.target.value }) }} />
+                            <InputLabel type="password" placeholder="Mot de passe" required="required" label="Mot de passe"  onChange={(e) => { setUser({ ...user, password: e.target.value }) }} />
+                        </div>
+                        <table className={styles.table}>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <span className={styles.abo}>
+                                        Standard
+                                    </span>
+                                </td>
+                                <td>
+                                    <span className={styles.abo}>
+                                        Premium
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Abonnement mensuel</th>
+                                <td>30€</td>
+                                <td>60€</td>
+                            </tr>
+                            <tr>
+                                <th>Qualité vidéo</th>
+                                <td>Meilleure</td>
+                                <td>Optimale</td>
+                            </tr>
+                            <tr>
+                                <th>Résolution</th>
+                                <td>1080p</td>
+                                <td>4K+HDR</td>
+                            </tr>
+                        </table>
                     </form>
                 </div>
             </div>
@@ -47,4 +75,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default withAuth(Index);

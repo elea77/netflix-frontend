@@ -7,6 +7,7 @@ import Link from 'next/link';
 import TitlePage from '../../components/UI/TitlePage/TitlePage';
 import MovieCard from '../../components/movie/MovieCard/MovieCard';
 import MovieModal from '../../components/movie/MovieModal/MovieModal';
+import withAuth from '../../HOC/withAuth';
 
 const Index = () => {
     const [movies, SetAllMovie] = useState([]);
@@ -53,7 +54,9 @@ const Index = () => {
             <div className={styles.movie__grid}>
                 {
                     movies.map((movie) => (
-                        <MovieCard movie={movie} key={movie._id} onClick={() => movieModal(movie)} />
+                        <div key={movie._id} className={styles.movie__card}> 
+                            <MovieCard movie={movie} onClick={() => movieModal(movie)} />
+                        </div>
                     ) )
                 }
             </div>
@@ -62,4 +65,5 @@ const Index = () => {
     );
 };
 
+// export default withAuth(Index);
 export default Index;

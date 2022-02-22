@@ -5,6 +5,7 @@ import TitlePage from '../../../../components/UI/TitlePage/TitlePage';
 import InputLabel from '../../../../components/UI/InputLabel/InputLabel';
 import Input from '../../../../components/UI/Input/Input';
 import { useRouter } from "next/router";
+import withAuthAdmin from "../../../../HOC/withAuthAdmin";
 
 const Index = () => {
     const [category, setCategory] = useState({});
@@ -42,4 +43,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default withAuthAdmin(Index);

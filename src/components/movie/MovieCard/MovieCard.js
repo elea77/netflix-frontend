@@ -4,11 +4,10 @@ import styles from "./MovieCard.module.scss";
 import { FaPlay } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
-import MovieModal from "../MovieModal/MovieModal";
 
 
 const MovieCard = (props) => {
-  
+    
     return (
         <>
             <div className={styles.movie__card} key={props.movie.id}>
@@ -20,11 +19,9 @@ const MovieCard = (props) => {
                                 <FaPlay />
                             </a>
                         </Link>
-                        <Link href=''>
-                            <a className={styles.add}>
-                                <AiOutlinePlus />
-                            </a>
-                        </Link>
+                        <div onClick="" className={styles.add}>
+                            <AiOutlinePlus />
+                        </div>
                         <div onClick={props.onClick} className={styles.more}>
                             <FiChevronDown />
                         </div>

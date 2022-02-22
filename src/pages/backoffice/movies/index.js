@@ -4,6 +4,7 @@ import authService from "../../../services/auth.service";
 import {AiOutlineEdit} from 'react-icons/ai'
 import Link from 'next/link';
 import TitlePage from '../../../components/UI/TitlePage/TitlePage';
+import withAuthAdmin from '../../../HOC/withAuthAdmin';
 
 const Index = () => {
     const [movies, SetAllMovie] = useState([]);
@@ -58,4 +59,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default withAuthAdmin(Index);

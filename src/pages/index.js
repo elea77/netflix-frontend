@@ -4,6 +4,7 @@ import styles from './index.module.scss';
 import { useRouter } from "next/router";
 import authService from "../services/auth.service";
 import Link from 'next/link';
+import withAuth from '../HOC/withAuth';
 
 const Index = () => {
     const [user, setUser] = useState({});
@@ -40,4 +41,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default withAuth(Index);

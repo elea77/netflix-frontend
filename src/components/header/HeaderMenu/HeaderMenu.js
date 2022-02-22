@@ -2,8 +2,14 @@ import React from 'react';
 import Link from 'next/link'
 import styles from "./HeaderMenu.module.scss";
 import {FiUser} from 'react-icons/fi'
+import { useRouter } from "next/router";
 
 const HeaderMenu = () => {
+    const router = useRouter();
+    const logout = () =>{
+        localStorage.removeItem("token");
+        router.push("/login");
+    }
     return (
         <nav className={styles.header__menu}>
             <ul>
@@ -33,6 +39,7 @@ const HeaderMenu = () => {
                         <Link href="/profile" >
                             <a><FiUser /> Compte</a>
                         </Link>
+                        <span  onClick={() => logout()} >Se déconnecter</span>
                     </div>
                 </div>
             </div>

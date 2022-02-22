@@ -6,6 +6,7 @@ import styles from './LoginLayout.module.scss';
 import LogoImg from '../../../assets/images/Netflix-logo.png';
 import Head from 'next/head';
 import Input from '../../UI/Input/Input';
+import Link from 'next/link';
 
 const LoginLayout = ({children}) => {
     return (
@@ -19,7 +20,9 @@ const LoginLayout = ({children}) => {
                 <div className={styles.body}>
                     <div className={styles.netflix__header}>
                         <img src={LogoImg.src} alt="Netflix" />
-                        <Input type="submit" value="S'identifier" className="btn btn-red" />
+                        <Link href='/login'>
+                            <a><span className="btn btn-red">{`S'identifier`}</span></a>
+                        </Link>
                     </div>
                     {children}
                 </div>

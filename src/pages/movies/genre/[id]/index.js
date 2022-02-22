@@ -6,7 +6,7 @@ import MovieCard from '../../../../components/movie/MovieCard/MovieCard';
 import MovieModal from '../../../../components/movie/MovieModal/MovieModal';
 import { useRouter } from "next/router";
 import Link from 'next/link';
-
+import withAuth from '../../../../HOC/withAuth';
 
 const Index = () => {
     const [category, setCategory] = useState({});
@@ -50,7 +50,9 @@ const Index = () => {
             <div className={styles.movie__grid}>
                 {
                     movies.map((movie) => (
-                        <MovieCard movie={movie} key={movie._id} onClick={() => movieModal(movie)} />
+                        <div key={movie._id} className={styles.movie__card}> 
+                            <MovieCard movie={movie} onClick={() => movieModal(movie)} />
+                        </div>
                     ) )
                 }
             </div>
@@ -59,4 +61,5 @@ const Index = () => {
     );
 };
 
+// export default withAuth(Index);
 export default Index;

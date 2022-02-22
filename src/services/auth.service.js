@@ -111,5 +111,30 @@ export default {
         },
         body: JSON.stringify(category),
       }).then((res) => res.json())
-  }
+  },
+  addElementToWishlist(wishlist, token) {
+    return fetch(`${apiConfigs.env.API_URL}api/v1/wishlist`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "authorization": token
+        },
+        body: JSON.stringify(wishlist),
+      }).then((res) => res.json())
+  },
+  getWishlist(id, token) {
+    return fetch(`${apiConfigs.env.API_URL}api/v1/wishlist/${id}`, {
+        headers: {
+          "content-type": "application/json",
+          "authorization": token
+        },
+      }).then((res) => res.json())
+  },
+  verifyToken(token) {
+    return fetch(`${apiConfigs.env.API_URL}api/v1/verifytoken`, {
+        headers: {
+            "authorization": token
+        }
+    }).then(res => res.json())
+  },
 }

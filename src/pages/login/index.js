@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import authService from "../../services/auth.service";
 import Input from '../../components/UI/Input/Input';
 import Link from 'next/link';
+import withAuth from '../../HOC/withAuth';
+
 
 const Index = () => {
     const [user, setUser] = useState({});
@@ -50,7 +52,7 @@ const Index = () => {
                     <div className={styles.recaptcha}>
                         <p>
                         Cette page est protégée par Google reCAPTCHA pour nous assurer que vous {`n'êtes`} pas un robot. <br />
-                            <Link href=''><a>En savoir plus.</a></Link>
+                            <Link href='/login'><a>En savoir plus.</a></Link>
                         </p>
                     </div>
                 </div>
@@ -59,4 +61,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default withAuth(Index);

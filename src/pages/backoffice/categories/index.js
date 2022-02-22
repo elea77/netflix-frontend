@@ -4,6 +4,7 @@ import authService from "../../../services/auth.service";
 import {AiOutlineEdit} from 'react-icons/ai'
 import TitlePage from '../../../components/UI/TitlePage/TitlePage';
 import Link from 'next/link';
+import withAuthAdmin from '../../../HOC/withAuthAdmin';
 
 const Index = () => {
     const [categories, SetAllCategory] = useState([]);
@@ -48,4 +49,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default withAuthAdmin(Index);

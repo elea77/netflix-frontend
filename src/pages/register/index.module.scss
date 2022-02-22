@@ -1,22 +1,80 @@
-.register__body {
-    margin: 0 auto -236px;
-    min-height: 100vh;
-    .register__content {
-        h1 {
-            padding-top: 2em;
-            color: white;
-            font-size: 3em;
-        }
-        h2 {
-            color: white;
-            font-weight: normal;
-        }
-        p {
-            color: white;
-        }
-        .register__form {
-            display: flex;
-            justify-content: center;
+.register {
+    margin: 0 auto 15px;
+    max-width: 978px;
+    .register__body {
+        margin: 0 auto -236px;
+        min-height: 100vh;
+        .register__content {
+            h1 {
+                padding: 1em 0;
+                color: black;
+                font-size: 2em;
+                text-align: center;
+            }
+            h2 {
+                color: white;
+                font-weight: normal;
+            }
+            p {
+                color: white;
+            }
+            .register__form {
+                .register__input {
+                    display: flex;
+                    justify-content: center;
+                }
+                .table {
+                    width: 100%;
+                    tr {
+                        border-bottom: 1px solid #ccc;
+                        min-height: 60px;
+                        display: flex;
+                        align-items: center;
+                        th {
+                            text-align: left;
+                            padding: 12px 16px;
+                            width: 60%;
+                            font-weight: normal;
+                        }
+                        td {
+                            text-align: center;
+                            padding: 12px 16px;
+                            width: 20%;
+                            font-weight: 700;
+                            color: #737373;
+                            .abo {
+                                padding: 1px;
+                                background: $primary-red;
+                                width: 120px;
+                                height: 120px;
+                                color: white;
+                                border-radius: 2px;
+                                font-size: 17px;
+                                margin: 0 auto;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                position: relative;
+                                &::after {
+                                    content: '';
+                                    display: block;
+                                    border: 0 solid transparent;
+                                    border-top-color: $primary-red;
+                                    position: absolute;
+                                    top: 100%;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    border-width: 10px;
+                                    border-bottom-width: 0;
+                                }
+                            }
+                        }
+                        &:first-child {
+                            border: none;
+                        }
+                    }
+                }
+            }
         }
     }
 }

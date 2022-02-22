@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import MovieCard from '../../components/movie/MovieCard/MovieCard';
 import MovieModal from '../../components/movie/MovieModal/MovieModal';
+import withAuth from '../../HOC/withAuth';
 
 const Index = () => {
     const [movies, SetAllMovie] = useState([]);
@@ -80,4 +81,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default withAuth(Index);

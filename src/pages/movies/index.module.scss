@@ -54,10 +54,13 @@
     .movie__grid {
         display: grid;
         grid-template-columns: repeat(6, calc(100%/6));
-        overflow: hidden;
-        & > div {
-            padding: 0.2em;
-            padding-bottom: 3em;
+        overflow: visible;
+        .movie__card {
+            position: relative;
+            & > div {
+                padding: 0.2em;
+                padding-bottom: 3em;
+            }
         }
     }
 }
