@@ -44,7 +44,8 @@ const Index = () => {
         <div>
             <div className={styles.motion__background}>
                 <div className={styles.background}></div>
-                <iframe width="100%" height="800" src="https://www.youtube.com/embed/DzCzUEhPI_Q?autoplay=1&loop=1&showinfo=0&controls=0&rel=0&modestbranding=1" title="Désenchantée" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  frameBorder="0" allowFullScreen></iframe>
+                <img src='https://file1.telestar.fr/var/telestar/storage/images/3/5/6/0/3560646/mr-mrs-smith-quel-scandale-eclate-plein-milieu-tournage.jpeg?alias=original' className={styles.hero__background}/>
+                {/* <iframe width="100%" height="800" src="https://www.youtube.com/embed/DzCzUEhPI_Q?autoplay=1&loop=1&showinfo=0&controls=0&rel=0&modestbranding=1" title="Désenchantée" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  frameBorder="0" allowFullScreen></iframe> */}
                 <div className={styles.billboard}>
                     <img src='https://www.pikpng.com/pngl/b/569-5694162_mrs-mr-and-mrs-smith-clipart.png' />
                     <p>{movieHero.description}</p>

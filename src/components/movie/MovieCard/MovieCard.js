@@ -11,7 +11,7 @@ const MovieCard = (props) => {
     return (
         <>
             <div className={styles.movie__card} key={props.movie.id}>
-                { props.movie.img ? <img src={props.movie.img} alt={props.movie.title} className={styles.movie__img} /> : <img src="https://fakeimg.pl/300x400/" alt={props.movie.title} className={styles.movie__img} /> }
+                { props.movie.img ? <img onClick={props.onClick} src={props.movie.img} alt={props.movie.title} className={styles.movie__img} /> : <img src="https://fakeimg.pl/300x400/" alt={props.movie.title} className={styles.movie__img} /> }
                 <div className={styles.movie__info}>
                     <div className={styles.movie__buttons}>
                         <Link href=''>
@@ -19,7 +19,7 @@ const MovieCard = (props) => {
                                 <FaPlay />
                             </a>
                         </Link>
-                        <div onClick="" className={styles.add}>
+                        <div className={styles.add}>
                             <AiOutlinePlus />
                         </div>
                         <div onClick={props.onClick} className={styles.more}>
