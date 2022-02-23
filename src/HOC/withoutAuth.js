@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import authService from "../services/auth.service";
 
-const withAuthAdmin = (WrappedComponent) => {
+const withAuth = (WrappedComponent) => {
     return (props) => {
         const router = useRouter();
         const [verify, setVerify] = useState(false);
@@ -15,12 +15,8 @@ const withAuthAdmin = (WrappedComponent) => {
                     if (!data.verify) {
                         localStorage.removeItem("token");
                         setVerify(false);
-                        router.push("/login");
                     } else {
-                        if(!data.isAdmin) {
-                            setVerify(false);
-                            router.push("/browser");
-                        }
+                        router.push("/browser");
                     }
                 })
                 .catch((err) => {
@@ -35,4 +31,5 @@ const withAuthAdmin = (WrappedComponent) => {
     };
 };
 
-export default withAuthAdmin;
+
+export default withAuth;

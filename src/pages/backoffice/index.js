@@ -1,4 +1,5 @@
 import React from 'react';
+import withAuthAdmin from '../../HOC/withAuthAdmin';
 
 const Index = () => {
     return (
@@ -7,5 +8,4 @@ const Index = () => {
         </div>
     );
 };
-
-export default Index;
+export default withAuthAdmin(Index);

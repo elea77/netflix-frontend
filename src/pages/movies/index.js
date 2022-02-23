@@ -65,5 +65,4 @@ const Index = () => {
     );
 };
 
-// export default withAuth(Index);
-export default Index;
+export default withAuth(Index);

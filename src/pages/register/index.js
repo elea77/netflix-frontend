@@ -6,7 +6,7 @@ import authService from "../../services/auth.service";
 import Link from 'next/link';
 import InputLabel from '../../components/UI/InputLabel/InputLabel';
 import TitlePage from '../../components/UI/TitlePage/TitlePage';
-import withAuth from '../../HOC/withAuth';
+import withoutAuth from '../../HOC/withoutAuth';
 
 const Index = () => {
     const [user, setUser] = useState({});
@@ -75,4 +75,4 @@ const Index = () => {
     );
 };
 
-export default withAuth(Index);
+export default withoutAuth(Index);

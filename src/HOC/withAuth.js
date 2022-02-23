@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import authService from "../services/auth.service";
 
-const withAuth = (WrappedComponent) => {
+const withoutAuth = (WrappedComponent) => {
     return (props) => {
         const router = useRouter();
         const [verify, setVerify] = useState(false);
@@ -16,12 +16,10 @@ const withAuth = (WrappedComponent) => {
                         localStorage.removeItem("token");
                         setVerify(false);
                         router.push("/login");
-                    } else {
-                        router.push("/browser");
                     }
                 })
                 .catch((err) => {
-                    router.push("/browser");
+                    router.push("/login");
                 });
         }, []);
         if (!verify) {
@@ -33,4 +31,4 @@ const withAuth = (WrappedComponent) => {
 };
 
 
-export default withAuth;
+export default withoutAuth;
