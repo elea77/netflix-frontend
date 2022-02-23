@@ -35,7 +35,7 @@ const Index = () => {
     return (
         <div>
             <div className={styles.login__body}>
-                {error ? {errorMessage} : ""}
+                {error ? errorMessage : ""}
                 <div className={styles.login__content}>
                     <h1>{`S'identifier`}</h1>
                     <form onSubmit={(e) => handleSubmit(e)}>

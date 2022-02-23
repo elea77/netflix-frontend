@@ -16,19 +16,26 @@ const Index = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const email = user.email;
-        console.log(email);
-        authService.getUserEmail(email)
+        authService.register(user)
         .then(data => {
-            console.log(data.message);
+            if (data.message) {
+                setError(true);
+                setErrorMessage(data.message);
+                return false;
+            }
+            localStorage.setItem("token", data.token);
+            router.push("/browser");
         })
-        .catch(err => console.log(err));
+        .catch((err) => {
+            setError(true);
+            setErrorMessage(err.message)
+        });
     };
 
     return (
         <div className={styles.register}>
             <div className={styles.register__body}>
-                {error ? {errorMessage} : ""}
+                {error ? errorMessage : ""}
                 <div className={styles.register__content}>
                     <TitlePage title="Créer votre compte"></TitlePage>
                     <form className={styles.register__form} onSubmit={(e) => handleSubmit(e)}>
@@ -42,12 +49,12 @@ const Index = () => {
                             <tr>
                                 <th></th>
                                 <td>
-                                    <span className={styles.abo}>
+                                    <span className={styles.abo} onClick={(e) => { setUser({ ...user, abonnement: "Standard" }) }}>
                                         Standard
                                     </span>
                                 </td>
                                 <td>
-                                    <span className={styles.abo}>
+                                    <span className={styles.abo} onClick={(e) => { setUser({ ...user, abonnement: "Premium" }) }}>
                                         Premium
                                     </span>
                                 </td>
@@ -68,6 +75,8 @@ const Index = () => {
                                 <td>4K+HDR</td>
                             </tr>
                         </table>
+
+                        <Input type="submit" value="Créer mon compte" className="btn btn-red" />
                     </form>
                 </div>
             </div>
