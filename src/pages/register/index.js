@@ -2,11 +2,14 @@ import React, {useState} from 'react';
 import Input from '../../components/UI/Input/Input';
 import styles from './index.module.scss';
 import { useRouter } from "next/router";
-import authService from "../../services/auth.service";
-import Link from 'next/link';
+import authService from "../../services/auth.service";s
 import InputLabel from '../../components/UI/InputLabel/InputLabel';
 import TitlePage from '../../components/UI/TitlePage/TitlePage';
-import withoutAuth from '../../HOC/withoutAuth';
+import { loadStripe } from "@stripe/stripe-js";
+import stripeService from "../../services/stripe.service";
+import apiConfigs from "../../next.config.js";
+
+const stripePromise = loadStripe("pk_test_51IYAwmJ5UFJGtqNY47wrtVEcNKKVkbiO0TzfR5kQ9Sfle8LjCPvQXzhuWH7PKoRaWQNP3oC2mVBhHPqkUn3n4BId00YcpQNq2k");
 
 const Index = () => {
     const [user, setUser] = useState({});
@@ -23,13 +26,40 @@ const Index = () => {
                 setErrorMessage(data.message);
                 return false;
             }
+            handleConfirmation();
             localStorage.setItem("token", data.token);
-            router.push("/browser");
         })
         .catch((err) => {
             setError(true);
             setErrorMessage(err.message)
         });
+    };
+
+
+    const handleConfirmation = async () => {
+        const token = localStorage.getItem('token');
+        const total = 0;
+        if(user.abonnement == "Standard") {
+            total = 30;
+        } else if (user.abonnement == "Premium") {
+            total = 60;
+        }
+
+        const payload = {
+            total: total,
+            abonnement: user.abonnement
+        }
+
+        try {
+            const stripe = await stripePromise;
+            const response = await stripeService.createSession(token, payload);
+            await stripe.redirectToCheckout({
+                sessionId: response.id,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+
     };
 
     return (
@@ -84,4 +114,4 @@ const Index = () => {
     );
 };
 
-export default withoutAuth(Index);
+export default Index;
