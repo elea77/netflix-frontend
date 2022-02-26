@@ -1,0 +1,18 @@
+.watch__movie {
+    position: relative;
+    .go_back {
+        position: absolute;
+        left: 1em;
+        top: 1em;
+        fill: white;
+        font-size: 2rem;
+        z-index: 2;
+    }
+    .video {
+        position: relative;
+        iframe {
+            position: absolute;
+            top: -60px;
+        }
+    }
+}

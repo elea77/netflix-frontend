@@ -50,7 +50,7 @@ const Index = () => {
                     <img src='https://www.pikpng.com/pngl/b/569-5694162_mrs-mr-and-mrs-smith-clipart.png' />
                     <p>{movieHero.description}</p>
                     <div className={styles.buttons}>
-                        <Link href='/'>
+                        <Link href={`/watch/${movieHero._id}`}>
                             <a className={styles.btn_play}><FaPlay /> Lecture</a>
                         </Link>
                         <div className={styles.btn_info} onClick={() => movieModal(movieHero)}>

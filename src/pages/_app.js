@@ -28,6 +28,11 @@ function MyApp({ Component, pageProps, ...appProps }) {
     </BackofficeLayout>
   );
 
+  if (appProps.router.pathname.startsWith('/watch'))
+  return  (
+    <Component {...pageProps} />
+  );
+
   return  (
     <MainLayout>
       <Component {...pageProps} />

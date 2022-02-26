@@ -49,7 +49,7 @@ const Index = () => {
     return (
         <div className={styles.movies}>
             <TitlePage title='Modification du film'></TitlePage>
-            {/* {error ? {errorMessage} : ""} */}
+            {error ? errorMessage : ""}
             <form onSubmit={(e) => handleSubmit(e)}>
                 <InputLabel type="text" required="required" label="Titre"  onChange={(e) => { setMovie({ ...movie, title: e.target.value }) }} value={movie.title} />
                 <InputLabel type="text" required="required" label="Description" onChange={(e) => { setMovie({ ...movie, description: e.target.value }) }} value={movie.description} />

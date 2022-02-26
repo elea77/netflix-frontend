@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import Input from '../../components/UI/Input/Input';
 import styles from './index.module.scss';
 import { useRouter } from "next/router";
-import authService from "../../services/auth.service";s
+import authService from "../../services/auth.service";
 import InputLabel from '../../components/UI/InputLabel/InputLabel';
 import TitlePage from '../../components/UI/TitlePage/TitlePage';
 import { loadStripe } from "@stripe/stripe-js";
 import stripeService from "../../services/stripe.service";
-import apiConfigs from "../../next.config.js";
+import apiConfigs from "../../../next.config.js";
 
+// const stripePromise = loadStripe(apiConfigs.env.STRIPE_PK);
 const stripePromise = loadStripe("pk_test_51IYAwmJ5UFJGtqNY47wrtVEcNKKVkbiO0TzfR5kQ9Sfle8LjCPvQXzhuWH7PKoRaWQNP3oC2mVBhHPqkUn3n4BId00YcpQNq2k");
 
 const Index = () => {
@@ -26,8 +27,8 @@ const Index = () => {
                 setErrorMessage(data.message);
                 return false;
             }
-            handleConfirmation();
             localStorage.setItem("token", data.token);
+            handleConfirmation();
         })
         .catch((err) => {
             setError(true);

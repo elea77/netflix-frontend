@@ -14,7 +14,7 @@ const MovieModal = (props) => {
                     { props.movie.img ? <img src={props.movie.img} alt={props.movie.title} className={styles.movie__img} /> : <img src="https://fakeimg.pl/300x400/" alt={props.movie.title} className={styles.movie__img} /> }
                     <div className={styles.billboard}>
                         <div className={styles.buttons}>
-                            <Link href='/'>
+                            <Link href={`/watch/${props.movie._id}`}>
                                 <a className={styles.btn_play}><FaPlay /> Lecture</a>
                             </Link>
                         </div>

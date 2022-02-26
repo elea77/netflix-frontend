@@ -14,7 +14,7 @@ const MovieCard = (props) => {
                 { props.movie.img ? <img onClick={props.onClick} src={props.movie.img} alt={props.movie.title} className={styles.movie__img} /> : <img src="https://fakeimg.pl/300x400/" alt={props.movie.title} className={styles.movie__img} /> }
                 <div className={styles.movie__info}>
                     <div className={styles.movie__buttons}>
-                        <Link href=''>
+                        <Link href={`/watch/${props.movie._id}`}>
                             <a className={styles.play}>
                                 <FaPlay />
                             </a>
