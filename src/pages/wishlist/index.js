@@ -10,12 +10,11 @@ import MovieModal from '../../components/movie/MovieModal/MovieModal';
 import withAuth from '../../HOC/withAuth';
 
 const Index = () => {
-    const [wishID, setIdWish] = useState();
-    const [movies, SetAllMovie] = useState([]);
+    const [movies, SetMovieWishlist] = useState([]);
     
     const [displayMovieModal, setDisplayModal] = useState(false);
     const [movie, setMovie] = useState({});
-
+    
     const movieModal = (movie) =>{
         setMovie(movie);
         setDisplayModal(!displayMovieModal)
@@ -23,7 +22,22 @@ const Index = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        console.log(token);
+        authService.getUser(token)
+            .then(data => {
+                const wishID = data.wishlist[0];
+                authService.getWishlist(wishID, token)
+                    .then(data => {
+                        for (const [key, value] of Object.entries(data.movies)) {
+                            authService.getMovie(value)
+                                .then(data => {
+                                    SetMovieWishlist(movies => [...movies, data]);
+                                })
+                            .catch(err => console.log(err));
+                          }
+                    })
+                    .catch(err => console.log(err));
+            })
+            .catch(err => console.log(err));
     },[]);
 
     return (
@@ -32,11 +46,13 @@ const Index = () => {
                 <TitlePage title='Ma liste'></TitlePage>
             </div>
             <div className={styles.movie__grid}>
-                {/* {
+                {
                     movies.map((movie) => (
-                        <MovieCard movie={movie} key={movie._id} onClick={() => movieModal(movie)} />
+                        <div key={movie._id} className={styles.movie__card}> 
+                            <MovieCard movie={movie} onClick={() => movieModal(movie)} />
+                        </div>
                     ) )
-                } */}
+                }
             </div>
             { displayMovieModal === true ? <MovieModal movie={movie} onClick={() => movieModal(movie)}  /> : null}
         </div>

@@ -20,8 +20,8 @@ const Index = () => {
         authService.createCategory(category, token)
         .then((data) => {
             if (data.message) {
-                // setError(true);
-                // setErrorMessage(data.message);
+                setError(true);
+                setErrorMessage(data.message);
                 return false;
             }
             router.push("/backoffice/categories");
@@ -34,7 +34,7 @@ const Index = () => {
     return (
         <div className={styles.categorys}>
             <TitlePage title='Modification du film'></TitlePage>
-            {/* {error ? {errorMessage} : ""} */}
+            {error ? errorMessage : ""}
             <form onSubmit={(e) => handleSubmit(e)}>
                 <InputLabel type="text" required="required" label="Titre"  onChange={(e) => { setCategory({ ...category, title: e.target.value }) }} />
                 <Input type="submit" value="Enregistrer" className="btn btn-red" />

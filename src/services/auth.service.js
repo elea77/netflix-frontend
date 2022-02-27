@@ -112,14 +112,14 @@ export default {
         body: JSON.stringify(category),
       }).then((res) => res.json())
   },
-  addElementToWishlist(wishlist, token) {
+  addElementToWishlist(movie, token) {
     return fetch(`${apiConfigs.env.API_URL}api/v1/wishlist`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
           "authorization": token
         },
-        body: JSON.stringify(wishlist),
+        body: JSON.stringify(movie),
       }).then((res) => res.json())
   },
   getWishlist(id, token) {

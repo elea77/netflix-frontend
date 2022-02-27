@@ -1,13 +1,46 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Link from "next/link";
 import styles from "./MovieCard.module.scss";
 import { FaPlay } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
-
+import authService from "../../../services/auth.service";
 
 const MovieCard = (props) => {
+
+    const [userId, setUserId] = useState();
+    const token = localStorage.getItem('token');
+
+    useEffect(() => {
+        authService.getUser(token)
+            .then(data => {
+                setUserId(data._id);
+            })
+            .catch(err => console.log(err));
+    },[]);
+
     
+    const addMovieToWishlist = (e) => {
+        e.preventDefault();
+        const body = {
+            user: userId,
+            movies: props.movie._id
+        }
+        authService.addElementToWishlist(body, token)
+        .then(data => {
+            if (data.message) {
+                setError(true);
+                setErrorMessage(data.message);
+                return false;
+            }
+            console.log(data);
+        })
+        .catch((err) => {
+            setError(true);
+            setErrorMessage(err.message)
+        });
+    }
+
     return (
         <>
             <div className={styles.movie__card} key={props.movie.id}>
@@ -19,7 +52,7 @@ const MovieCard = (props) => {
                                 <FaPlay />
                             </a>
                         </Link>
-                        <div className={styles.add}>
+                        <div  onClick={(e) => addMovieToWishlist(e)} className={styles.add}>
                             <AiOutlinePlus />
                         </div>
                         <div onClick={props.onClick} className={styles.more}>
