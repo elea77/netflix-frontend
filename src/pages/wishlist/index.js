@@ -10,7 +10,7 @@ import MovieModal from '../../components/movie/MovieModal/MovieModal';
 import withAuth from '../../HOC/withAuth';
 
 const Index = () => {
-    const [movies, SetMovieWishlist] = useState([]);
+    const [wishlist, SetMovieWishlist] = useState([]);
     
     const [displayMovieModal, setDisplayModal] = useState(false);
     const [movie, setMovie] = useState({});
@@ -27,13 +27,7 @@ const Index = () => {
                 const wishID = data.wishlist[0];
                 authService.getWishlist(wishID, token)
                     .then(data => {
-                        for (const [key, value] of Object.entries(data.movies)) {
-                            authService.getMovie(value)
-                                .then(data => {
-                                    SetMovieWishlist(movies => [...movies, data]);
-                                })
-                            .catch(err => console.log(err));
-                          }
+                        SetMovieWishlist(data.movies);
                     })
                     .catch(err => console.log(err));
             })
@@ -47,7 +41,7 @@ const Index = () => {
             </div>
             <div className={styles.movie__grid}>
                 {
-                    movies.map((movie) => (
+                    wishlist.map((movie) => (
                         <div key={movie._id} className={styles.movie__card}> 
                             <MovieCard movie={movie} onClick={() => movieModal(movie)} />
                         </div>

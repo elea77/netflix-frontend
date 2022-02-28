@@ -44,7 +44,13 @@ const Index = () => {
                             <td data-column="Image"><img src={movie.img} /></td>
                             <td data-column="Durée">{movie.duration}</td>
                             <td data-column="Date">{movie.date}</td>
-                            <td data-column="Catégorie">{movie.categories}</td>
+                            <td data-column="Catégorie">
+                                {
+                                    movie.categories.map((category) => (
+                                        <p key={category._id}>{category.title}</p>
+                                    ) )
+                                }
+                            </td>
                             <td>
                                 <Link href={`/backoffice/movies/${movie._id}`}>
                                     <a><AiOutlineEdit /></a>

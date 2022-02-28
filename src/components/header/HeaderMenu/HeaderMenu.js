@@ -1,21 +1,35 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import Link from 'next/link'
 import styles from "./HeaderMenu.module.scss";
 import {FiUser} from 'react-icons/fi'
 import { useRouter } from "next/router";
+import authService from "../../../services/auth.service";
+
 
 const HeaderMenu = () => {
     const router = useRouter();
+    const [isAdmin, setUser] = useState();
+    
     const logout = () =>{
         localStorage.removeItem("token");
         router.push("/login");
     }
+    
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        authService.getUser(token)
+            .then(data => {
+                setUser(data.isAdmin);
+            })
+            .catch(err => console.log(err));
+    },[]);
+
     return (
         <nav className={styles.header__menu}>
             <ul>
                 <li>
                     <Link href="/browser">
-                    <a>Accueil</a>
+                        <a>Accueil</a>
                     </Link>
                 </li>
                 <li>
@@ -28,6 +42,14 @@ const HeaderMenu = () => {
                         <a>Ma liste</a>
                     </Link>
                 </li>
+                { isAdmin ? 
+                    <li>
+                    <Link href="/backoffice">
+                        <a>Backoffice</a>
+                    </Link>
+                </li>
+                : null }
+                
             </ul>
             <div className={styles.secondary__navigation}>
                 <div className={styles.profile__menu}>

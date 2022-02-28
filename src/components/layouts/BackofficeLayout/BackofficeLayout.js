@@ -1,10 +1,8 @@
 import React from 'react';
-import HeaderLogo from '../../header/HeaderLogo/HeaderLogo';
 import Footer from '../../footer/Footer';
-// import '../../styles/styles.scss';
 import styles from './BackofficeLayout.module.scss';
-import LogoImg from '../../../assets/images/Netflix-logo.png';
 import Head from 'next/head';
+import Sidebar from '../../dashboard/Sidebar/Sidebar';
 
 const BackofficeLayout = ({children}) => {
     return (
@@ -15,10 +13,8 @@ const BackofficeLayout = ({children}) => {
                 <link rel="icon" href="/netflix.ico" />
             </Head>
             <main className={styles.main}>
+                <Sidebar/>
                 <div className={styles.body}>
-                    <div className={styles.netflix__header}>
-                        <img src={LogoImg.src} alt="Netflix" />
-                    </div>
                     {children}
                 </div>
             </main>

@@ -1,0 +1,27 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $primary-grey;
+    width: 15rem;
+    height: 100%;
+    z-index: 999;
+    .sidebar__content {
+        ul {
+            list-style: none;
+            padding: 2em;
+            .logo__link {
+                margin-bottom: 4em;
+                text-align: center;
+                img {
+                    height: 45px;
+                    width: 167px;
+                }
+            }
+            .link {
+                color: black;
+                text-decoration: none;
+            }
+        }
+    }
+}

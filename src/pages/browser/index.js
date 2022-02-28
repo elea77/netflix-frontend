@@ -16,6 +16,7 @@ import withAuth from '../../HOC/withAuth';
 
 const Index = () => {
     const [movies, SetAllMovie] = useState([]);
+    const [categories, SetAllCategories] = useState([]);
 
     const [displayMovieModal, setDisplayModal] = useState(false);
     const [movie, setMovie] = useState({});
@@ -33,9 +34,10 @@ const Index = () => {
                 setMovieHero(data)
             })
             .catch(err => console.log(err));
-        authService.getAllMovies()
+            authService.getAllCategories()
             .then(data => {
-                SetAllMovie(data)
+                console.log(data);
+                SetAllCategories(data)
             })
             .catch(err => console.log(err));
     },[]);
@@ -60,22 +62,31 @@ const Index = () => {
                 </div>
             </div>
             <div className={styles.wrapper}>
-                <Swiper
-                    slidesPerView={6}
-                    spaceBetween={5}
-                    slidesPerGroup={6}
-                    loop={true}
-                    // navigation={true}
-                    modules={[Pagination, Navigation]}
-                    className={styles.swiper}>
-                    {
-                        movies.map((movie) => (
-                            <SwiperSlide className={styles.swiper__slide} key={movie._id}>
-                                <MovieCard movie={movie} onClick={() => movieModal(movie)} />
-                            </SwiperSlide>
-                        ) )
-                    }
-                </Swiper>
+
+                {
+                    categories.map((category) => (
+                        <div key={category._id}>
+                            <h1>{category.title}</h1>
+
+                            <Swiper
+                                slidesPerView={6}
+                                spaceBetween={5}
+                                slidesPerGroup={6}
+                                loop={true}
+                                // navigation={true}
+                                modules={[Pagination, Navigation]}
+                                className={styles.swiper}>
+                                {
+                                    category.movies.map((movie) => (
+                                        <SwiperSlide className={styles.swiper__slide} key={movie._id}>
+                                            <MovieCard movie={movie} onClick={() => movieModal(movie)} />
+                                        </SwiperSlide>
+                                    ) )
+                                }
+                            </Swiper>
+                        </div>
+                    ) )
+                }
             </div>
             { displayMovieModal === true ? <MovieModal movie={movie} onClick={() => movieModal(movie)}  /> : null}
         </div>
