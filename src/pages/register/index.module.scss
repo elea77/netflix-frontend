@@ -25,6 +25,7 @@
                 }
                 .table {
                     width: 100%;
+                    margin-top: 1em;
                     tr {
                         border-bottom: 1px solid #ccc;
                         min-height: 60px;
@@ -42,6 +43,14 @@
                             width: 20%;
                             font-weight: 700;
                             color: #737373;
+                            &.is_active {
+                                .abo {
+                                    opacity: 1;
+                                }
+                            }
+                            &.red {
+                                color: $primary-red;
+                            }
                             .abo {
                                 padding: 1px;
                                 background: $primary-red;
@@ -51,6 +60,7 @@
                                 border-radius: 2px;
                                 font-size: 17px;
                                 margin: 0 auto;
+                                opacity: .6;
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;

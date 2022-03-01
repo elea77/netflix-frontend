@@ -6,6 +6,7 @@ import InputLabel from '../../../../components/UI/InputLabel/InputLabel';
 import Input from '../../../../components/UI/Input/Input';
 import { useRouter } from "next/router";
 import withAuthAdmin from "../../../../HOC/withAuthAdmin";
+import Alert from '../../../../components/UI/Alert/Alert';
 
 const Index = () => {
     const [movie, setMovie] = useState({});
@@ -45,7 +46,7 @@ const Index = () => {
     return (
         <div className={styles.movies}>
             <TitlePage title='Modification du film'></TitlePage>
-            {/* {error ? {errorMessage} : ""} */}
+            {error ? <Alert text={errorMessage} className='alert alert-danger'></Alert> : ""}
             <form onSubmit={(e) => handleSubmit(e)}>
                 <InputLabel type="text" required="required" label="Titre"  onChange={(e) => { setMovie({ ...movie, title: e.target.value }) }} />
                 <InputLabel type="text" required="required" label="Description" onChange={(e) => { setMovie({ ...movie, description: e.target.value }) }} />

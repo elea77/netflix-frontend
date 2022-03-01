@@ -44,7 +44,7 @@ const HeaderMenu = () => {
                 </li>
                 { isAdmin ? 
                     <li>
-                    <Link href="/backoffice">
+                    <Link href="/backoffice/movies">
                         <a>Backoffice</a>
                     </Link>
                 </li>

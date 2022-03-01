@@ -6,6 +6,7 @@ import InputLabel from '../../../../components/UI/InputLabel/InputLabel';
 import Input from '../../../../components/UI/Input/Input';
 import { useRouter } from "next/router";
 import withAuthAdmin from "../../../../HOC/withAuthAdmin";
+import Alert from '../../../../components/UI/Alert/Alert';
 
 const Index = () => {
     const [category, setCategory] = useState({});
@@ -43,7 +44,7 @@ const Index = () => {
     return (
         <div className={styles.categorys}>
             <TitlePage title='Modification de la catégorie'></TitlePage>
-            {/* {error ? {errorMessage} : ""} */}
+            {error ? <Alert text={errorMessage} className='alert alert-danger'></Alert> : ""}
             <form onSubmit={(e) => handleSubmit(e)}>
                 <InputLabel type="text" required="required" label="Titre"  onChange={(e) => { setCategory({ ...category, title: e.target.value }) }} value={category.title} />
                 <Input type="submit" value="Enregistrer" className="btn btn-red" />

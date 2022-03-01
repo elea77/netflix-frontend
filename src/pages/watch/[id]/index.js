@@ -22,7 +22,7 @@ const Index = () => {
 
     return (
         <div className={styles.watch__movie}>
-            <Link href='/browser'>
+            <Link href='/browse'>
                 <a><FaChevronLeft className={styles.go_back} /></a>
             </Link>
             <div className={styles.video}>

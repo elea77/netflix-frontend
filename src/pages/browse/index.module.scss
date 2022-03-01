@@ -52,10 +52,31 @@
 .wrapper {
     padding: 4em;
     overflow: hidden;
-    h1 {
-        color: white;
-        margin-top: 2rem;
+    padding-bottom: 8em;
+    .link__category {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        margin-top: 3rem;
         margin-bottom: 1rem;
+        h1 {
+            color: white;
+            font-size: 1.5rem;
+            padding-right: 0.8rem;
+        }
+        .explore {
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transition: 0.3s;
+            font-size: 0.8rem;
+            color: white;
+        }
+        &:hover {
+            .explore {
+                opacity: 1;
+            }
+        }
     }
     .swiper {
         width: 100%;
@@ -66,8 +87,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            & > div {
+            .card {
                 position: relative!important;
+                width: 100%;
+                &:hover {
+                    & > div {
+                        position: absolute;
+                    }
+                }
             }
         }
     }

@@ -6,6 +6,7 @@ import authService from "../../services/auth.service";
 import Input from '../../components/UI/Input/Input';
 import Link from 'next/link';
 import withAuth from '../../HOC/withAuth';
+import Alert from '../../components/UI/Alert/Alert';
 
 
 const Index = () => {
@@ -35,7 +36,7 @@ const Index = () => {
     return (
         <div>
             <div className={styles.login__body}>
-                {error ? errorMessage : ""}
+                {error ? <Alert text={errorMessage} className='alert alert-danger'></Alert> : ""}
                 <div className={styles.login__content}>
                     <h1>{`S'identifier`}</h1>
                     <form onSubmit={(e) => handleSubmit(e)}>

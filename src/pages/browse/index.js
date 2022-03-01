@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import styles from './index.module.scss';
 import { FaPlay } from "react-icons/fa";
 import { GrCircleInformation } from "react-icons/gr";
+import { GoChevronRight } from "react-icons/go";
 import authService from "../../services/auth.service";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -64,7 +65,12 @@ const Index = () => {
                 {
                     categories.map((category) => (
                         <div key={category._id}>
-                            <h1>{category.title}</h1>
+                            <Link href={`/movies/genre/${category._id}`}>
+                                <a className={styles.link__category}>
+                                    <h1>{category.title}</h1>
+                                    <p className={styles.explore}>Tout explorer <GoChevronRight /></p>
+                                </a>
+                            </Link>
                             <Swiper
                                 slidesPerView={6}
                                 spaceBetween={5}
@@ -75,7 +81,9 @@ const Index = () => {
                                 {
                                     category.movies.map((movie) => (
                                         <SwiperSlide className={styles.swiper__slide} key={movie._id}>
-                                            <MovieCard movie={movie} onClick={() => movieModal(movie)} />
+                                            <div className={styles.card}>
+                                                <MovieCard movie={movie} onClick={() => movieModal(movie)} />
+                                            </div>
                                         </SwiperSlide>
                                     ) )
                                 }

@@ -20,11 +20,11 @@ const Index = () => {
 
     return (
         <div className={styles.profile}>
-            <TitlePage title='Mon compte'></TitlePage>
-            <p>FirstName: {user && user.firstName}</p>
-            <p>LastName: {user && user.lastName}</p>
-            <p>Email: {user && user.email}</p>
-            <p>Abonnement en cours: {user && user.abonnement}</p>
+            <TitlePage title='Mon compte'></TitlePage><br></br>
+            <h2>Bonjour {user && user.firstName} {user && user.lastName},</h2><br />
+            <h3>Vos informations :</h3>
+            <p>Adresse mail: <b>{user && user.email}</b></p>
+            <p>Abonnement en cours: <b>{user && user.abonnement}</b></p>
         </div>
     );
 };
