@@ -9,7 +9,7 @@ const Sidebar = () => {
             <nav className={styles.sidebar__content}>
                 <ul>
                     <li>
-                        <Link href="/browser">
+                        <Link href="/browse">
                             <a className={styles.logo__link}>
                                 <img src={LogoImg.src} alt="Netflix" />
                             </a>

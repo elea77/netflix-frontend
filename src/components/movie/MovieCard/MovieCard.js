@@ -4,24 +4,28 @@ import styles from "./MovieCard.module.scss";
 import { FaPlay } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
+import { BsCheck2 } from "react-icons/bs";
 import authService from "../../../services/auth.service";
 
 const MovieCard = (props) => {
 
     const [userId, setUserId] = useState();
+    const [userMovies, setUserMovies] = useState([]);
     const token = localStorage.getItem('token');
-
+    
     useEffect(() => {
+        const token = localStorage.getItem('token');
         authService.getUser(token)
             .then(data => {
                 setUserId(data._id);
+                setUserMovies(data.wishlist.movies);
             })
             .catch(err => console.log(err));
-    },[]);
+        
+    },[userMovies]);
 
     
-    const addMovieToWishlist = (e) => {
-        e.preventDefault();
+    const addMovieToWishlist = () => {
         const body = {
             user: userId,
             movies: props.movie._id
@@ -33,7 +37,25 @@ const MovieCard = (props) => {
                 setErrorMessage(data.message);
                 return false;
             }
-            console.log(data);
+        })
+        .catch((err) => {
+            setError(true);
+            setErrorMessage(err.message)
+        });
+    }
+    
+    const removeMovieToWishlist = () => {
+        const body = {
+            user: userId,
+            movies: props.movie._id
+        }
+        authService.removeElementToWishlist(body, token)
+        .then(data => {
+            if (data.message) {
+                setError(true);
+                setErrorMessage(data.message);
+                return false;
+            }
         })
         .catch((err) => {
             setError(true);
@@ -52,9 +74,16 @@ const MovieCard = (props) => {
                                 <FaPlay />
                             </a>
                         </Link>
-                        <div  onClick={(e) => addMovieToWishlist(e)} className={styles.add}>
-                            <AiOutlinePlus />
-                        </div>
+                        { userMovies.includes(props.movie._id) ? 
+                            <div onClick={() => removeMovieToWishlist()} className={styles.add}>
+                                <BsCheck2 />
+                            </div>
+                            :  
+                            <div onClick={() => addMovieToWishlist()} className={styles.add}>
+                                <AiOutlinePlus />
+                            </div>
+                        }
+                        
                         <div onClick={props.onClick} className={styles.more}>
                             <FiChevronDown />
                         </div>

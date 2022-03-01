@@ -24,7 +24,7 @@ const Index = () => {
         const token = localStorage.getItem("token");
         authService.getUser(token)
             .then(data => {
-                const wishID = data.wishlist[0];
+                const wishID = data.wishlist._id;
                 authService.getWishlist(wishID, token)
                     .then(data => {
                         SetMovieWishlist(data.movies);
@@ -32,7 +32,7 @@ const Index = () => {
                     .catch(err => console.log(err));
             })
             .catch(err => console.log(err));
-    },[]);
+    },[wishlist]);
 
     return (
         <div className={styles.wishlist}>

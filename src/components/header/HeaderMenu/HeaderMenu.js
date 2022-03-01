@@ -28,7 +28,7 @@ const HeaderMenu = () => {
         <nav className={styles.header__menu}>
             <ul>
                 <li>
-                    <Link href="/browser">
+                    <Link href="/browse">
                         <a>Accueil</a>
                     </Link>
                 </li>

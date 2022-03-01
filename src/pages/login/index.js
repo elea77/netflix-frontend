@@ -24,7 +24,7 @@ const Index = () => {
                 return false;
             }
             localStorage.setItem("token", data.token);
-            router.push("/browser");
+            router.push("/browse");
         })
         .catch((err) => {
             setError(true);

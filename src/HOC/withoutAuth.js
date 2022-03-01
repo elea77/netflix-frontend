@@ -16,11 +16,11 @@ const withAuth = (WrappedComponent) => {
                         localStorage.removeItem("token");
                         setVerify(false);
                     } else {
-                        router.push("/browser");
+                        router.push("/browse");
                     }
                 })
                 .catch((err) => {
-                    router.push("/browser");
+                    router.push("/browse");
                 });
         }, []);
         if (!verify) {

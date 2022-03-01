@@ -19,12 +19,12 @@ const withAuthAdmin = (WrappedComponent) => {
                     } else {
                         if(!data.isAdmin) {
                             setVerify(false);
-                            router.push("/browser");
+                            router.push("/browse");
                         }
                     }
                 })
                 .catch((err) => {
-                    router.push("/browser");
+                    router.push("/browse");
                 });
         }, []);
         if (!verify) {

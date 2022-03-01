@@ -122,6 +122,16 @@ export default {
         body: JSON.stringify(movie),
       }).then((res) => res.json())
   },
+  removeElementToWishlist(movie, token) {
+    return fetch(`${apiConfigs.env.API_URL}api/v1/wishlist`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+          "authorization": token
+        },
+        body: JSON.stringify(movie),
+      }).then((res) => res.json())
+  },
   getWishlist(id, token) {
     return fetch(`${apiConfigs.env.API_URL}api/v1/wishlist/${id}`, {
         headers: {

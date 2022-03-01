@@ -15,7 +15,6 @@ import MovieModal from '../../components/movie/MovieModal/MovieModal';
 import withAuth from '../../HOC/withAuth';
 
 const Index = () => {
-    const [movies, SetAllMovie] = useState([]);
     const [categories, SetAllCategories] = useState([]);
 
     const [displayMovieModal, setDisplayModal] = useState(false);
@@ -36,7 +35,6 @@ const Index = () => {
             .catch(err => console.log(err));
             authService.getAllCategories()
             .then(data => {
-                console.log(data);
                 SetAllCategories(data)
             })
             .catch(err => console.log(err));
@@ -67,13 +65,11 @@ const Index = () => {
                     categories.map((category) => (
                         <div key={category._id}>
                             <h1>{category.title}</h1>
-
                             <Swiper
                                 slidesPerView={6}
                                 spaceBetween={5}
                                 slidesPerGroup={6}
                                 loop={true}
-                                // navigation={true}
                                 modules={[Pagination, Navigation]}
                                 className={styles.swiper}>
                                 {
